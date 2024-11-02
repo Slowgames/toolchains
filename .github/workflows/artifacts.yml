@@ -35,4 +35,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: slowgames-toolchain-${{matrix.toolchain}}
-        path: $HOME/x-tools/${{matrix.toolchain}}/
+        path: $HOME/x-tools/
