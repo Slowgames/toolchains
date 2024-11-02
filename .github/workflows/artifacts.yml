@@ -20,7 +20,8 @@ jobs:
 
     - name: Setup crosstool-ng
       run: |
-        git clone https://github.com/crosstool-ng/crosstool-ng
+        apt install -y bison flex pkg-config texinfo help2man gawk libtool-bin libncurses5-dev && \
+          git clone https://github.com/crosstool-ng/crosstool-ng
         cd crosstool-ng
         ./bootstrap && ./configure --enable-local && make -j
 
