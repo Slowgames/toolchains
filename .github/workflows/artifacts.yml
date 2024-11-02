@@ -7,7 +7,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: registry.gitlab.steamos.cloud/steamrt/sniper/sdk
+    container:
+      image: registry.gitlab.steamos.cloud/steamrt/sniper/sdk
+      volumes:
+        - /tmp/x-tools:/home/github/x-tools
 
     strategy:
       # Set fail-fast to false to ensure that feedback is delivered for all matrix combinations.
@@ -35,4 +38,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: slowgames-toolchain-${{matrix.toolchain}}
-        path: $HOME/x-tools/
+        path: /tmp/x-tools/
