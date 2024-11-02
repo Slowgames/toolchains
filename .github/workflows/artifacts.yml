@@ -10,7 +10,8 @@ jobs:
     container: registry.gitlab.steamos.cloud/steamrt/sniper/sdk
 
     strategy:
-      # Set fail-fast to false to ensure that feedback is delivered for all matrix combinations. Consider changing this to true when your workflow is stable.
+      # Set fail-fast to false to ensure that feedback is delivered for all matrix combinations.
+      # Consider changing this to true when your workflow is stable.
       fail-fast: false
       matrix:
         toolchain: [x86_64-linux, x86_64-mingw]
@@ -28,7 +29,7 @@ jobs:
     - name: Build
       run: |
         cd ${{matrix.toolchain}}
-        dist/bin/ct-ng build
+        ../crosstool-ng/ct-ng build
 
     - name: Upload Artifacts
       uses: actions/upload-artifact@v4
